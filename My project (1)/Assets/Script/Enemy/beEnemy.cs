@@ -22,8 +22,8 @@ public class beEnemy : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 10f;
     public float attackCooldown = 5f;
-    public Transform projectileSpawnPoint;
-    private AudioSource audioSource;
+    public Transform projectileSpawnPoint; 
+
     private void Awake()
     {
         curhp = maxhp;
@@ -33,7 +33,7 @@ public class beEnemy : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+      
         heathbar.UpdateHeathbar(curhp,maxhp);
        
     }
@@ -47,7 +47,6 @@ public class beEnemy : MonoBehaviour
         {
             Die();
             LaunchDrvoe();
-            audioSource.Play();
         }
     }
 
@@ -137,7 +136,6 @@ public class beEnemy : MonoBehaviour
     
     private void LaunchDrvoe()
     {
-
         // Instantiate the projectile at the spawn point above the head
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
 
@@ -149,5 +147,5 @@ public class beEnemy : MonoBehaviour
         projectileRb.velocity = direction * projectileSpeed;
     }
 
-
+   
 }
